@@ -9,18 +9,18 @@ Open App
 
 Check the main menu
     [Documentation]  Checking if all items in the menu are visible
-    Page Should Contain Element    ${Accessibility}
-    Page Should Contain Element    ${Accessibility}
-    Page Should Contain Element    ${Animation}
-    Page Should Contain Element    ${App}
-    Page Should Contain Element    ${Content}
-    Page Should Contain Element    ${Graphics}
-    Page Should Contain Element    ${Media}
-    Page Should Contain Element    ${NFC}
-    Page Should Contain Element    ${OS}
-    Page Should Contain Element    ${Preference}
-    Page Should Contain Element    ${Text}
-    Page Should Contain Element    ${Views}
+    AppiumLibrary.Page Should Contain Element    ${Accessibility}
+    AppiumLibrary.Page Should Contain Element    ${Accessibility}
+    AppiumLibrary.Page Should Contain Element    ${Animation}
+    AppiumLibrary.Page Should Contain Element    ${App}
+    AppiumLibrary.Page Should Contain Element    ${Content}
+    AppiumLibrary.Page Should Contain Element    ${Graphics}
+    AppiumLibrary.Page Should Contain Element    ${Media}
+    AppiumLibrary.Page Should Contain Element    ${NFC}
+    AppiumLibrary.Page Should Contain Element    ${OS}
+    AppiumLibrary.Page Should Contain Element    ${Preference}
+    AppiumLibrary.Page Should Contain Element    ${Text}
+    AppiumLibrary.Page Should Contain Element    ${Views}
 
 Launch app
     [Documentation]  Opening the app and checking the main menu
@@ -29,40 +29,47 @@ Launch app
 
 Open a menu option
     [Arguments]  ${menuOption}  ${expectedContent}
-    [Documentation]  Opening one menu option and checking the menu of the second page
-    Click Element    ${menuOption}
-    Wait Until Page Contains Element    ${expectedContent}
+    [Documentation]  Opening one menu option and waiting for a particular element
+    AppiumLibrary.Click Element    ${menuOption}
+    AppiumLibrary.Wait Until Page Contains Element    ${expectedContent}
 
 Double back
-    Go Back
-    Go Back
+    [Arguments]  ${elem}
+    AppiumLibrary.Go Back
+    AppiumLibrary.Go Back
+    AppiumLibrary.Wait Until Page Contains Element    ${elem}
+
+Back
+    [Arguments]   ${elem}
+    AppiumLibrary.Go Back
+    AppiumLibrary.Wait Until Page Contains Element    ${elem}
 
 Check the accessibility menu
     [Documentation]  Checking if all the options are visible
-    Click Element    ${Accessibility}
-    Wait Until Page Contains Element   ${accessNodeProvider}
-    Page Should Contain Element   ${accessNodeQuery}
-    Page Should Contain Element   ${accessService}
-    Page Should Contain Element   ${accessCustomView}
+    AppiumLibrary.Click Element    ${Accessibility}
+    AppiumLibrary.Wait Until Page Contains Element   ${accessNodeProvider}
+    AppiumLibrary.Page Should Contain Element   ${accessNodeQuery}
+    AppiumLibrary.Page Should Contain Element   ${accessService}
+    AppiumLibrary.Page Should Contain Element   ${accessCustomView}
 
 Check the Access Node Query
     [Documentation]  Checking if all the options are visible and checkboxes interactable
     Open a menu option    ${accessNodeQuery}  ${taskTrashOpt}
-    Page Should Contain Element  ${taskTrashOpt}
-    Click checkbox
-    Page Should Contain Element  ${taskLaundryOpt}
-#    Click checkbox
-    Page Should Contain Element  ${taskConquerOpt}
-#    Click checkbox
-    Page Should Contain Element  ${taskNapOpt}
-#    Click checkbox
-    Page Should Contain Element  ${taskTaxOpt}
-#    Click checkbox
-    Page Should Contain Element  ${taskIRSOpt}
-#    Click checkbox
-    Page Should Contain Element  ${taskTeaOpt}
-#    Click checkbox
+    AppiumLibrary.Page Should Contain Element  ${taskTrashOpt}
+    AppiumLibrary.Page Should Contain Element  ${taskLaundryOpt}
+    AppiumLibrary.Page Should Contain Element  ${taskConquerOpt}
+    AppiumLibrary.Page Should Contain Element  ${taskNapOpt}
+    AppiumLibrary.Page Should Contain Element  ${taskTaxOpt}
+    AppiumLibrary.Page Should Contain Element  ${taskIRSOpt}
+    AppiumLibrary.Page Should Contain Element  ${taskTeaOpt}
 
 
-Click checkbox
-    Click Element    ${checkbox}
+Swipe Down
+    [Arguments]       ${elem}
+    ${element_size}=    AppiumLibrary.Get Element Size    ${elem}
+    ${element_location}=    Get Element Location    ${elem}
+    ${start_x}=         Evaluate      ${element_location['x']} + ${element_size['width']} * 0.5
+    ${start_y}=         Evaluate      ${element_location['y']} + ${element_size['height']} * 0.3
+    ${end_x}=           Evaluate      ${element_location['x']} + ${element_size['width']} * 0.5
+    ${end_y}=           Evaluate      ${element_location['y']} + ${element_size['height']} * 0.7
+    Swipe               ${start_x}    ${start_y}  ${end_x}  ${end_y}  500

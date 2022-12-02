@@ -53,6 +53,7 @@ ${animReverseBtn}  xpath=//android.widget.Button[@content-desc="Reverse"]
 ${animSeek}  xpath=//android.widget.TextView[@content-desc="Seeking"]
 ${animFlip}  xpath=//android.widget.TextView[@content-desc="View Flip"]
 ${animFlipBtn}  xpath=//android.widget.Button[@content-desc="Flip"]
+${animListRes}  xpath=//android.widget.TextView[@text='Un' and @index='0']
 #App Elem
 ${appVoiceRec}  xpath=//android.widget.TextView[@content-desc="Voice Recognition"]
 ${appActBar}  xpath=//android.widget.TextView[@content-desc="Action Bar"]
@@ -104,3 +105,5 @@ ${viewTextFields}  xpath=//android.widget.TextView[@content-desc="TextFields"]
 ${viewInputField}  xpath=/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.EditText
 #Notifications
 ${notifSilent}  xpath=/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.TextView
+#
+${scrollItem}  id=android:id/decor_content_parent

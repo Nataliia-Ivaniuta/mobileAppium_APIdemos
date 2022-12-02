@@ -69,7 +69,7 @@ Explore Animation
     #action
     Back  ${animFlip}
     Open a menu option    ${animFlip}  ${animFlipBtn}
-    Open a menu option    ${animFlipBtn}  id=io.appium.android.apis:id/list_en
+    Open a menu option    ${animFlipBtn}  ${animListRes}
     Double back  ${Accessibility}
 
 Explore AppElem

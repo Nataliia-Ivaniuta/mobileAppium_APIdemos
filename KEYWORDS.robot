@@ -1,6 +1,5 @@
 *** Settings ***
 Library  AppiumLibrary
-Library    SeleniumLibrary
 
 *** Keywords ***
 Open App
@@ -65,18 +64,12 @@ Check the Access Node Query
 
 
 Swipe Down
-#    [Arguments]       ${elem}
-#    ${elemID}=  Get Element ID  ${elem}
-    ${element_size}=    Get Element Size    id=android:id/decor_content_parent
-    ${element_location}=    Get Element Location     id=android:id/decor_content_parent
+    ${element_size}=    Get Element Size    ${scrollItem}
+    ${element_location}=    Get Element Location     ${scrollItem}
     ${start_x}=         Evaluate      ${element_location['x']} + (${element_size['width']} * 0.5)
     ${start_y}=         Evaluate      ${element_location['y']} + (${element_size['height']} * 0.7)
     ${end_x}=           Evaluate      ${element_location['x']} + (${element_size['width']} * 0.5)
     ${end_y}=           Evaluate      ${element_location['y']} + (${element_size['height']} * 0.3)
     Swipe               ${start_x}    ${start_y}  ${end_x}  ${end_y}  100
-    Sleep  1
+#    Sleep  1
 
-
-Get Element ID
-    [Arguments]  ${elem}
-    Get Element Attribute    ${elem}    id

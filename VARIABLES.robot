@@ -63,7 +63,7 @@ ${appShareActProv}  xpath=//android.widget.TextView[@content-desc="Share Action 
 ${appDisplayOptions}  xpath=//android.widget.TextView[@content-desc="Display Options"]
 ${appDisplayHomeBtn}  xpath=//android.widget.Button[@content-desc="DISPLAY_HOME_AS_UP"]
 ${appActivity}  xpath=//android.widget.TextView[@content-desc="Activity"]
-${appWallpaper}  xpath=////android.widget.TextView[@content-desc="Wallpaper"]
+${appWallpaper}  xpath=//android.widget.TextView[@content-desc="Wallpaper"]
 ${appWallpaper}  xpath=//android.widget.TextView[@content-desc="Wallpaper"]
 ${appAddNewTab}  xpath=//android.widget.Button[@content-desc="Add new tab"]
 #Contents Elem
@@ -95,5 +95,12 @@ ${textBox}  xpath=//hierarchy/android.widget.FrameLayout/android.view.ViewGroup/
 ${textMessage}  xpath=//hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.TextView
 ${textLinkTextMess}  xpath=//hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.TextView[4]
 #Views Menu
-${viewAnimation}  xpath=//android.widget.TextView[@content-desc="Animation"]
-${WebView3}    xpath=//android.widget.TextView[@content-desc="WebView3"]
+${viewAnimation}  xpath=//android.widget.TextView[@index='0' and @text='Animation']
+${WebView2}    xpath=//android.widget.TextView[@content-desc="WebView2"]
+${viewTextnoFocus}  xpath=/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.webkit.WebView/android.webkit.WebView/android.view.View[2]/android.view.View/android.widget.EditText
+${WebView3}    xpath=//android.widget.TextView[@index='14' and @text='WebView3']
+${viewHoverE}  xpath=//android.widget.TextView[@content-desc="Hover Events"]
+${viewTextFields}  xpath=//android.widget.TextView[@content-desc="TextFields"]
+${viewInputField}  xpath=/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.EditText
+#Notifications
+${notifSilent}  xpath=/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.TextView

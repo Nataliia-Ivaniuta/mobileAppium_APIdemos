@@ -90,8 +90,8 @@ Explore AppElem
 Explore Content
     Open a menu option    ${Content}  ${contentAssets}
     Open a menu option   ${contentAssets}   ${contentReadAsset}
-    Open a menu option    ${contentReadAsset}  ${textMessage}
-    Element Should Contain Text    ${textMessage}    This text is stored in a raw Asset.
+    Open a menu option    ${contentReadAsset}  ${contentTextMess}
+    Element Should Contain Text    ${contentTextMess}   This text is stored in a raw Asset.
     Double back  ${contentResources}
     Open a menu option    ${contentResources}   ${contentLayReference}
     Open a menu option   ${contentLayReference}  ${contentDefaultLayout}
@@ -102,7 +102,8 @@ Explore Graphics
     Open a menu option   ${Graphics}  ${graphicsAlphaBitmap}
     Swipe Down
     Element Should Be Visible    ${graphicsXfermodes}
-    Back  ${Graphics}
+    Open a menu option    ${graphicsVertices}    ${graphicsVerticesContent}
+    Double Back  ${Graphics}
 
 Explore Media
     Open a menu option   ${Media}  ${mediaPlayer}
@@ -111,13 +112,19 @@ Explore Media
 
 Explore NFC
     Open a menu option    ${NFC}  ${nfcForegroundDispatch}
-    Back  ${NFC}
+    Open a menu option    ${nfcForegroundDispatch}    ${nfcMessage}
+    Back  ${nfcForegroundDispatch}
+    Open a menu option    ${nfcTechFilter}    ${nfcMessage}
+    Double back    ${NFC}
 
 Explore OS
     Open a menu option    ${OS}  ${osSMS}
     Open a menu option    ${osSMS}  ${osEnablesmsCB}
     Open a menu option    ${osEnablesmsCB}   ${osReceiver}
-    Double back  ${OS}
+    Click Element    ${osRecipientInput}
+    Is Keyboard Shown
+    Double back  ${osSMS}
+    Back  ${OS}
 
 Explore Preference
     Open a menu option    ${Preference}  ${preferSwitch}
@@ -127,8 +134,8 @@ Explore Preference
 
 Explore Text
     Open a menu option    ${Text}  ${textLinkify}
-    Open a menu option    ${textLinkify}  ${textLinkTextMess}
-    Element Should Contain Text    ${textLinkTextMess}  Click here to dial the phone.
+    Open a menu option    ${textLinkify}  ${textLinkTextMess4}
+    Element Should Contain Text    ${textLinkTextMess4}  Click here to dial the phone.
     Back  ${textLog}
     Open Notifications
     Double Back  ${Text}

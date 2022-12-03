@@ -11,14 +11,14 @@ ${OS}    xpath=//android.widget.TextView[@content-desc="OS"]
 ${Preference}    xpath=//android.widget.TextView[@content-desc="Preference"]
 ${Text}    xpath=//android.widget.TextView[@content-desc="Text"]
 ${Views}    xpath=//android.widget.TextView[@content-desc="Views"]
-#Accessibility menu
+#Accessibility section of Main Menu
 ${accessNodeProvider}    xpath=//android.widget.TextView[@content-desc="Accessibility Node Provider"]
-${accessNodeProviderContent}    xpath=//android.widget.TextView[@content-desc="Enable TalkBack and Explore-by-touch from accessibility settings. Then touch the colored squares."]
+${accessNodeProviderContent}    xpath=//android.widget.LinearLayout[@index='0']
 ${accessNodeQuery}  xpath=//android.widget.TextView[@content-desc="Accessibility Node Querying"]
 ${accessService}  xpath=//android.widget.TextView[@content-desc="Accessibility Service"]
-${accessServiceContent}  xpath=/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.ImageButton
+${accessServiceContent}  xpath=//android.widget.LinearLayout[@index='0']
 ${accessCustomView}  xpath=//android.widget.TextView[@content-desc="Custom View"]
-${accessCustomViewContent}  xpath=/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]
+${accessCustomViewContent}  xpath=//android.widget.FrameLayout[@index='1']
 #Access Node Query List
 ${taskTrashOpt}    xpath=//android.widget.TextView[@content-desc="Task Take out Trash"]
 ${taskLaundryOpt}    xpath=//android.widget.TextView[@content-desc="Task Do Laundry"]
@@ -27,10 +27,10 @@ ${taskNapOpt}    xpath=//android.widget.TextView[@content-desc="Task Nap"]
 ${taskTaxOpt}    xpath=//android.widget.TextView[@content-desc="Task Do Taxes"]
 ${taskIRSOpt}    xpath=//android.widget.TextView[@content-desc="Task Abolish IRS"]
 ${taskTeaOpt}    xpath=//android.widget.TextView[@content-desc="Task Tea with Aunt Sharon"]
-${checkbox}  id=io.appium.android.apis:id/tasklist_finished
-#Animation section
+${checkbox}  xpath=//android.widget.CheckBox[@index='1' and @elementId='00000000-0000-00dd-ffff-ffff00000071']
+#Animation section of Main Menu
 ${animBouncB}    xpath=//android.widget.TextView[@content-desc="Bouncing Balls"]
-${animBouncBContent}  xpath=/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]
+${animBouncBContent}  xpath=//android.widget.FrameLayout[2]
 ${animClon}    xpath=//android.widget.TextView[@content-desc="Cloning"]
 ${animRunBtn}  xpath=//android.widget.Button[@content-desc="Run"]
 ${animCustomEval}  xpath=//android.widget.TextView[@content-desc="Custom Evaluator"]
@@ -43,9 +43,9 @@ ${animHideShow}    xpath=//android.widget.TextView[@content-desc="Hide-Show Anim
 ${animShowButtons}  xpath=//android.widget.Button[@content-desc="Show Buttons"]
 ${animCustAnimCB}  xpath=//android.widget.CheckBox[@content-desc="Custom Animations"]
 ${animHideCB}  xpath=//android.widget.CheckBox[@content-desc="Hide (GONE)"]
-${anim0block}  xpath=/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.Button[1]
+${anim0block}  xpath=//android.widget.Button[@text='0' and @index='0']
 ${animLayoutAnim}  xpath=//android.widget.TextView[@content-desc="Layout Animations"]
-${animNewBlock}  xpath=/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.view.ViewGroup/android.widget.Button
+${animNewBlock}  xpath=//android.widget.Button[@text='1' and @index='0']
 ${animLoad}  xpath=//android.widget.TextView[@content-desc="Loading"]
 ${animMultProp}  xpath=//android.widget.TextView[@content-desc="Multiple Properties"]
 ${animReverse}  xpath=//android.widget.TextView[@content-desc="Reversing"]
@@ -54,7 +54,7 @@ ${animSeek}  xpath=//android.widget.TextView[@content-desc="Seeking"]
 ${animFlip}  xpath=//android.widget.TextView[@content-desc="View Flip"]
 ${animFlipBtn}  xpath=//android.widget.Button[@content-desc="Flip"]
 ${animListRes}  xpath=//android.widget.TextView[@text='Un' and @index='0']
-#App Elem
+#App section of Main Menu
 ${appVoiceRec}  xpath=//android.widget.TextView[@content-desc="Voice Recognition"]
 ${appActBar}  xpath=//android.widget.TextView[@content-desc="Action Bar"]
 ${appActBarTabs}  xpath=//android.widget.TextView[@content-desc="Action Bar Tabs"]
@@ -67,43 +67,48 @@ ${appActivity}  xpath=//android.widget.TextView[@content-desc="Activity"]
 ${appWallpaper}  xpath=//android.widget.TextView[@content-desc="Wallpaper"]
 ${appWallpaper}  xpath=//android.widget.TextView[@content-desc="Wallpaper"]
 ${appAddNewTab}  xpath=//android.widget.Button[@content-desc="Add new tab"]
-#Contents Elem
+#Contents section of Main Menu
 ${contentAssets}  xpath=//android.widget.TextView[@content-desc="Assets"]
 ${contentReadAsset}  xpath=//android.widget.TextView[@content-desc="Read Asset"]
+${contentTextMess}  xpath=//android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.TextView
 ${contentResources}  xpath=//android.widget.TextView[@content-desc="Resources"]
 ${contentLayReference}  xpath=//android.widget.TextView[@content-desc="Layout Reference"]
 ${contentDefaultLayout}  xpath=//android.widget.TextView[@content-desc="Default layout"]
-#Graphics
+#Graphics section of Main Menu
 ${graphicsAlphaBitmap}  xpath=//android.widget.TextView[@content-desc="AlphaBitmap"]
 ${graphicsXfermodes}  xpath=//android.widget.TextView[@content-desc="Xfermodes"]
-#Media
+${graphicsVertices}  xpath=//android.widget.TextView[@content-desc="Vertices"]
+${graphicsVerticesContent}  xpath=//android.widget.FrameLayout[2]
+#Media section of Main Menu
 ${mediaPlayer}  xpath=//android.widget.TextView[@content-desc="MediaPlayer"]
 ${mediaPlayBtn}  xpath=//android.widget.Button[@content-desc="Play Streaming Video"]
-#NFC
+#NFC section of Main Menu
 ${nfcForegroundDispatch}  xpath=//android.widget.TextView[@content-desc="ForegroundDispatch"]
-#OS section
+${nfcMessage}  xpath=//android.widget.TextView[@text='Scan a tag']
+${nfcTechFilter}  xpath=//android.widget.TextView[@content-desc="TechFilter"]
+#OS section of Main Menu
 ${osSMS}  xpath=//android.widget.TextView[@content-desc="SMS Messaging"]
 ${osEnablesmsCB}  xpath=//android.widget.CheckBox[@content-desc="Enable SMS broadcast receiver"]
 ${osReceiver}  xpath=//android.widget.TextView[@content-desc="Recipient #"]
+${osRecipientInput}  xpath=//android.widget.TableRow[1]/android.widget.EditText
 #Preference
 ${preferSwitch}  xpath=//android.widget.TextView[@content-desc="9. Switch"]
-${preferSwitchCB}  xpath=//hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.ListView/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.CheckBox
-#Text section
+${preferSwitchCB}  xpath=//android.widget.CheckBox[@index='0']
+#Text section of Main Menu
 ${textLinkify}  xpath=//android.widget.TextView[@content-desc="Linkify"]
 ${textLog}  xpath=//android.widget.TextView[@content-desc="LogTextBox"]
 ${textAddBtn}  xpath=//android.widget.Button[@content-desc="Add"]
-${textBox}  xpath=//hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.TextView
-${textMessage}  xpath=//hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.TextView
-${textLinkTextMess}  xpath=//hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.TextView[4]
-#Views Menu
+${textBox}  xpath=//android.widget.TextView[@index='1']
+
+${textMessage}  xpath=android.widget.TextView[@text='This is a test']
+${textLinkTextMess4}  xpath=//android.widget.TextView[4]
+#Views section of Main Menu
 ${viewAnimation}  xpath=//android.widget.TextView[@index='0' and @text='Animation']
 ${WebView2}    xpath=//android.widget.TextView[@content-desc="WebView2"]
-${viewTextnoFocus}  xpath=/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.webkit.WebView/android.webkit.WebView/android.view.View[2]/android.view.View/android.widget.EditText
+${viewTextnoFocus}  xpath=//android.widget.EditText[@index='0']
 ${WebView3}    xpath=//android.widget.TextView[@index='14' and @text='WebView3']
 ${viewHoverE}  xpath=//android.widget.TextView[@content-desc="Hover Events"]
 ${viewTextFields}  xpath=//android.widget.TextView[@content-desc="TextFields"]
-${viewInputField}  xpath=/hierarchy/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.EditText
-#Notifications
-${notifSilent}  xpath=/hierarchy/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.FrameLayout[2]/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.TextView
+${viewInputField}  xpath=//android.widget.EditText[@index='0' and @text='hint text']
 #
 ${scrollItem}  id=android:id/decor_content_parent
